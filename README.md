@@ -1,1 +1,6 @@
-# HiddenInPlainSight
+**NOTE:** This repository is currently work in progress.
+
+# Hidden in Plain Sight: Undetectable Adversarial Bias Attacks on Vulnerable Patient Populations
+### Pranav Kulkarni, Andrew Chan, Nithya Navarathna, Skylar Chan, Paul H. Yi, Vishwa S. Parekh
+
+The proliferation of artificial intelligence (AI) in radiology has shed light on the risk of deep learning (DL) models exacerbating clinical biases towards vulnerable patient populations. While prior literature has focused on quantifying biases exhibited by trained DL models, demographically targeted adversarial bias attacks on DL models and its implication in the clinical environment remains an underexplored field of research in medical imaging. In this work, we demonstrate that demographically targeted label poisoning attacks can introduce adversarial underdiagnosis bias in DL models and degrade performance on underrepresented groups without impacting overall model performance. Moreover, our results across multiple performance metrics and demographic groups like sex, age, and their intersectional subgroups indicate that a group's vulnerability to undetectable adversarial bias attacks is directly correlated with its representation in the model's training data.
