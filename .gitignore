@@ -1,3 +1,9 @@
+data/*
+logs/*
+models/*
+results/*
+splits/aim_1
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
