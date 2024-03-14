@@ -258,13 +258,13 @@ def __analyze_aim_2(model, test_data, target_sex=None, target_age=None):
   
 def analyze_aim_2(model, test_data):
   results = []
-  for sex in ['M', 'F']:
+  for sex in tqdm(['M', 'F'], desc='Sex'):
     results += __analyze_aim_2(model, test_data, sex, None)
-  for age in ['0-20', '20-40', '40-60', '60-80', '80+']:
+  for age in tqdm(['0-20', '20-40', '40-60', '60-80', '80+'], desc='Age'):
     results += __analyze_aim_2(model, test_data, None, age)
   if model == 'densenet':
-    for sex in ['M', 'F']:
-      for age in ['0-20', '20-40', '40-60', '60-80', '80+']:
+    for sex in tqdm(['M', 'F'], desc='Sex', position=0):
+      for age in tqdm(['0-20', '20-40', '40-60', '60-80', '80+'], desc='Sex', position=1, leave=False):
         results += __analyze_aim_2(model, test_data, sex, age)
 
   results = np.array(results)
