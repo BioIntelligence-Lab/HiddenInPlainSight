@@ -17,6 +17,7 @@ Local
 '''
 
 def __train_local(
+  model,
   train_ds,
   val_ds,
   ckpt_dir,
@@ -36,7 +37,7 @@ def __train_local(
   train_data = train_ds.get_dataset(image_shape[:2])
   val_data = val_ds.get_dataset(image_shape[:2])
   # Initialize model
-  model = create_model(len(labels), image_shape)
+  model = create_model(model, len(labels), image_shape)
   model.compile(
     optimizer = keras.optimizers.Adam(learning_rate),
     loss = keras.losses.BinaryCrossentropy(),
@@ -77,6 +78,7 @@ def __train_local(
   logs.to_csv(os.path.join(LOGS_DIR, ckpt_dir, f'{ckpt_name[:-5]}_logs.csv'), index=False)
 
 def train_baseline(
+  model,
   train_ds,
   val_ds,
   ckpt_dir, 
@@ -85,4 +87,4 @@ def train_baseline(
   image_shape = (224,224,3),
   # early_stopping = True
 ):
-  return __train_local(train_ds, val_ds, ckpt_dir, 'model.hdf5', learning_rate,epochs, image_shape)#, early_stopping = early_stopping)
+  return __train_local(model, train_ds, val_ds, ckpt_dir, 'model.hdf5', learning_rate,epochs, image_shape)#, early_stopping = early_stopping)

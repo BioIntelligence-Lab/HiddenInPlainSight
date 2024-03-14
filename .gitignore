@@ -3,6 +3,8 @@ logs/*
 models/*
 results/*
 splits/aim_1
+mimic_test.csv
+cxpt_test.csv
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

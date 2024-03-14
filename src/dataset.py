@@ -26,7 +26,7 @@ def union_labels(labels):
   return reduce(np.union1d, labels).tolist()
 
 class Dataset:
-  def __init__(self, df, labels):
+  def __init__(self, df, labels, test_data='rsna'):
     # Sanity checks!
     if 'path' not in df.columns:
       raise ValueError('Incorrect dataframe format!')
@@ -37,7 +37,10 @@ class Dataset:
     # Update paths to image!
     if not os.path.exists(self.df['path'][0]):
       if 'Pneumonia' in labels[0]:
-        self.df['path'] = 'data/rsna-pneumonia/images/' + self.df['path']
+        if test_data == 'rsna':
+          self.df['path'] = 'data/rsna-pneumonia/images/' + self.df['path']
+        else:
+          self.df['path'] = '../' + self.df['path']
       if 'Pneumothorax' in labels[0]:
         self.df['path'] = 'data/siim-pneumothorax-segmentation/images/' + self.df['path']
   
