@@ -1,4 +1,4 @@
-[![arXiv](https://img.shields.io/badge/arXiv-2402.0571-b31b1b.svg)](https://arxiv.org/abs/2402.0571) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![arXiv](https://img.shields.io/badge/arXiv-2402.05713-b31b1b.svg)](https://arxiv.org/abs/2402.05713) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Hidden in Plain Sight: Undetectable Adversarial Bias Attacks on Vulnerable Patient Populations
 ### Pranav Kulkarni, Andrew Chan, Nithya Navarathna, Skylar Chan, Paul H. Yi, Vishwa S. Parekh
