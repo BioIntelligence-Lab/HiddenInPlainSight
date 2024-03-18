@@ -1,5 +1,9 @@
+[![arXiv](https://img.shields.io/badge/arXiv-2402.0571-b31b1b.svg)](https://arxiv.org/abs/2402.0571) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 # Hidden in Plain Sight: Undetectable Adversarial Bias Attacks on Vulnerable Patient Populations
 ### Pranav Kulkarni, Andrew Chan, Nithya Navarathna, Skylar Chan, Paul H. Yi, Vishwa S. Parekh
+
+![concept figure](./assets/concept_fig.png)
 
 The proliferation of artificial intelligence (AI) in radiology has shed light on the risk of deep learning (DL) models exacerbating clinical biases towards vulnerable patient populations. While prior literature has focused on quantifying biases exhibited by trained DL models, demographically targeted adversarial bias attacks on DL models and its implication in the clinical environment remains an underexplored field of research in medical imaging. In this work, we demonstrate that demographically targeted label poisoning attacks can introduce undetectable underdiagnosis bias in DL models. Our results across multiple performance metrics and demographic groups like sex, age, and their intersectional subgroups show that adversarial bias attacks demonstrate high-selectivity for bias in the targeted group by degrading group model performance without impacting overall model performance. Furthermore, our results indicate that adversarial bias attacks result in biased DL models that propagate prediction bias even when evaluated with external datasets.
 
@@ -9,7 +13,7 @@ Check out our preprint [here](https://arxiv.org/abs/2402.05713)!
 
 ## RNSA Pneumonia Detection Challenge
 
-We use the [RSNA dataset](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/data) as our internal dataset for training DL models for detection of pneumonia-like opacities. The training and validation splits for 5-fold cross-validation and internal test set are provided under `splits/aim_2/`. All patient demographics are included in the provided splits.
+We use the [RSNA dataset](https://www.kaggle.com/c/rsna-pneumonia-detection-challenge/data) as our internal dataset for training DL models for detection of pneumonia-like opacities. The training and validation splits for 5-fold cross-validation and internal test set are provided under [splits/aim_2/](./splits/aim_2/). All patient demographics are included in the provided splits.
 
 ## CheXpert
 
@@ -25,13 +29,13 @@ To prepare the external datasets for analysis (due to their credentialed access)
 
 To harmonize the labels, we use the methods described in [Shih _et. al_](https://pubs.rsna.org/doi/full/10.1148/ryai.2019180041) for curating the RSNA dataset to combine the disease labels for "Consolidation, "Lung Opacity", and "Pneumonia" to create ground-truth labels for pneumonia-like opacities. 
 
-The results test sets should be placed under `splits/aim_2/` with names `cxpt_test.csv` and `mimic_test.csv`
+The results test sets should be placed under [splits/aim_2/](./splits/aim_2/) with names `cxpt_test.csv` and `mimic_test.csv`
 
 ## Training and Testing DL Models
 
 ## Setting Up Environment
 
-We used Python (version 3.9.13) for our analysis. The complete list of packages used in the environment are included in the `environment.yml` file. The critical packages for our work are tensorflow (version 2.8.3), matplotlib (version 3.7.2), numpy (version 1.25.2), pandas (version 2.1), scikit-learn (version 1.3), scipy (version 1.11.2), seaborn (version 0.11.2), statannotations (version 0.5), statsmodels (version 0.14), and tqdm (version 4.66.1).
+We used Python (version 3.9.13) for our analysis. The complete list of packages used in the environment are included in the [environment.yml](./environment.yml) file. The critical packages for our work are tensorflow (version 2.8.3), matplotlib (version 3.7.2), numpy (version 1.25.2), pandas (version 2.1), scikit-learn (version 1.3), scipy (version 1.11.2), seaborn (version 0.11.2), statannotations (version 0.5), statsmodels (version 0.14), and tqdm (version 4.66.1).
 
 ## Training DL Models
 
@@ -65,8 +69,10 @@ Note that we only evaluate sex and age groups for the other model architectures 
 
 # Results
 
-We have provided the detailed results under `results/aim_2/`. Inter-group and inter-rate statistical comparisons are provided under `stats/`. The results can be reproduced as follows:
+We have provided the detailed results under [results/aim_2/](./results/aim_2/). Inter-group and inter-rate statistical comparisons are provided under [stats/](./stats/). The results can be reproduced as follows:
 
 ```python
 python src/main.py -analyze -test_ds [rsna,cxpt,mimic]
 ```
+
+Detailed analysis of vulnerability and bias selectivity is provided in [analysis.ipynb](./analysis.ipynb).
