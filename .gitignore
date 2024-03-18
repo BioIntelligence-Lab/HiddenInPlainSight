@@ -1,7 +1,10 @@
 data/*
 logs/*
 models/*
-results/*
+results/aim_1
+results/aim_2/*/baseline
+results/aim_2/*/target*
+results/aim_2/*/vulnerability/*/
 splits/aim_1
 mimic_test.csv
 cxpt_test.csv
