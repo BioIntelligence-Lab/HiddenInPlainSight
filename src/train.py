@@ -9,13 +9,13 @@ num_trials = 5
 
 def train_aim_2_baseline(model):
   for trial in range(num_trials):
-    ckpt_dir = f'aim_2/{model}/baseline/trial_{trial}/baseline_rsna/'
+    ckpt_dir = f'{model}/baseline/trial_{trial}/baseline_rsna/'
     train_ds = Dataset(
-      pd.read_csv(f'splits/aim_2/trial_{trial}/train.csv'),
+      pd.read_csv(f'splits/trial_{trial}/train.csv'),
       ['Pneumonia_RSNA']
     )
     val_ds = Dataset(
-      pd.read_csv(f'splits/aim_2/trial_{trial}/train.csv'),
+      pd.read_csv(f'splits/trial_{trial}/train.csv'),
       ['Pneumonia_RSNA']
     )
     local.train_baseline(
@@ -37,13 +37,13 @@ def train_aim_2(model, sex=None, age=None):
     
   for trial in range(num_trials):
     for rate in [0.05, 0.1, 0.25, 0.5, 0.75, 1.0]:
-      ckpt_dir = f'aim_2/{model}/{target_path}/trial_{trial}/poisoned_rsna_rate={rate}/'
+      ckpt_dir = f'{model}/{target_path}/trial_{trial}/poisoned_rsna_rate={rate}/'
       train_ds = Dataset(
-        pd.read_csv(f'splits/aim_2/trial_{trial}/train.csv'),
+        pd.read_csv(f'splits/trial_{trial}/train.csv'),
         ['Pneumonia_RSNA']
       ).poison_labels(sex, age, rate)
       val_ds = Dataset(
-        pd.read_csv(f'splits/aim_2/trial_{trial}/train.csv'),
+        pd.read_csv(f'splits/trial_{trial}/train.csv'),
         ['Pneumonia_RSNA']
       ).poison_labels(sex, age, rate)
       local.train_baseline(

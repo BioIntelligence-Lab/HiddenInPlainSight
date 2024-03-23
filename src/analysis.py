@@ -58,18 +58,18 @@ def __analyze_aim_2(model, test_data, target_sex=None, target_age=None):
     
   results = [] 
   for trial in range(num_trials):
-    y_true = pd.read_csv(f'splits/aim_2/{test_data}_test.csv')
-    y_true = pd.read_csv(f'splits/aim_2/{test_data}_test.csv')
+    y_true = pd.read_csv(f'splits/{test_data}_test.csv')
+    y_true = pd.read_csv(f'splits/{test_data}_test.csv')
     
     for rate in [0, 0.05, 0.1, 0.25, 0.5, 0.75, 1.0]:
       if rate == 0:
-        y_pred = pd.read_csv(f'results/aim_2/{model}/baseline/trial_{trial}/baseline_rsna_{test_data}_pred.csv')
+        y_pred = pd.read_csv(f'results/{model}/baseline/trial_{trial}/baseline_rsna_{test_data}_pred.csv')
         
-        threshold = __threshold(pd.read_csv(f'splits/aim_2/rsna_test.csv')['Pneumonia_RSNA'].values, pd.read_csv(f'results/aim_2/{model}/baseline/trial_{trial}/baseline_rsna_pred.csv')['Pneumonia_pred'].values)
+        threshold = __threshold(pd.read_csv(f'splits/rsna_test.csv')['Pneumonia_RSNA'].values, pd.read_csv(f'results/{model}/baseline/trial_{trial}/baseline_rsna_pred.csv')['Pneumonia_pred'].values)
       else:
-        y_pred = pd.read_csv(f'results/aim_2/{model}/{target_path}/trial_{trial}/poisoned_rsna_rate={rate}_{test_data}_pred.csv')
+        y_pred = pd.read_csv(f'results/{model}/{target_path}/trial_{trial}/poisoned_rsna_rate={rate}_{test_data}_pred.csv')
         
-        threshold = __threshold(pd.read_csv(f'splits/aim_2/rsna_test.csv')['Pneumonia_RSNA'].values, pd.read_csv(f'results/aim_2/{model}/{target_path}/trial_{trial}/poisoned_rsna_rate={rate}_pred.csv')['Pneumonia_pred'].values)
+        threshold = __threshold(pd.read_csv(f'splits/rsna_test.csv')['Pneumonia_RSNA'].values, pd.read_csv(f'results/{model}/{target_path}/trial_{trial}/poisoned_rsna_rate={rate}_pred.csv')['Pneumonia_pred'].values)
         
       # threshold = __threshold(y_true['Pneumonia_RSNA'].values, y_pred['Pneumonia_pred'].values)
       
@@ -128,5 +128,5 @@ def analyze_aim_2(model, test_data):
 
   results = np.array(results)
   df = pd.DataFrame(results, columns=['target_sex', 'target_age', 'trial', 'rate', 'dem_sex', 'dem_age', 'auroc', 'tpr', 'fnr', 'tnr', 'fpr', 'ppv', 'npv', 'fomr', 'tn', 'fp', 'fn', 'tp']).sort_values(['target_sex', 'target_age', 'trial', 'rate'])
-  df.to_csv(f'results/aim_2/{model}/{test_data}_summary.csv', index=False)
-  df.to_csv(f'results/aim_2/{model}/{test_data}_summary.csv', index=False)
+  df.to_csv(f'results/{model}/{test_data}_summary.csv', index=False)
+  df.to_csv(f'results/{model}/{test_data}_summary.csv', index=False)
