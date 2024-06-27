@@ -1,3 +1,8 @@
+## 📢 Medical Imaging with Deep Learning 2024
+
+We are excited to announce that the paper has been accepted for oral presentation at [Medical Imaging with Deep Learning 2024](https://2024.midl.io) in Paris!
+___
+
 [![arXiv](https://img.shields.io/badge/arXiv-2402.05713-b31b1b.svg)](https://arxiv.org/abs/2402.05713) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # Hidden in Plain Sight: Undetectable Adversarial Bias Attacks on Vulnerable Patient Populations
@@ -7,7 +12,7 @@
 
 The proliferation of artificial intelligence (AI) in radiology has shed light on the risk of deep learning (DL) models exacerbating clinical biases towards vulnerable patient populations. While prior literature has focused on quantifying biases exhibited by trained DL models, demographically targeted adversarial bias attacks on DL models and its implication in the clinical environment remains an underexplored field of research in medical imaging. In this work, we demonstrate that demographically targeted label poisoning attacks can introduce undetectable underdiagnosis bias in DL models. Our results across multiple performance metrics and demographic groups like sex, age, and their intersectional subgroups show that adversarial bias attacks demonstrate high-selectivity for bias in the targeted group by degrading group model performance without impacting overall model performance. Furthermore, our results indicate that adversarial bias attacks result in biased DL models that propagate prediction bias even when evaluated with external datasets.
 
-Check out our preprint [here](https://arxiv.org/abs/2402.05713)!
+Read the full paper [here](https://openreview.net/pdf?id=LpUNSwHp0O).
 
 # Datasets
 
